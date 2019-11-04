@@ -3,9 +3,13 @@ let scoreCount = document.getElementById('score');
 let count = 0;
 let time = null;
 
+const moveCoin = () => {
+    coin.style.left = Math.random() * (innerWidth - coin.offsetWidth) + 'px';
+    coin.style.top = Math.random() * (innerHeight - coin.offsetHeight) + 'px';
+}
+
 const buttonClickHandler = () => {
-    coin.style.left = Math.random() * 500 + 'px';
-    coin.style.top = Math.random() * 500 + 'px';
+    moveCoin();
     count += 1;
     scoreCount.innerHTML = `${count}`;
     clearTimeout(time);
@@ -22,9 +26,7 @@ button.onclick = () => {
 }
 */
 const moveCoinOnTime = () => {
-    console.log('moved');
-    coin.style.left = Math.random() * 500 + 'px';
-    coin.style.top = Math.random() * 500 + 'px';
+    moveCoin();
     moveCoinIn2Sec();
 }
 

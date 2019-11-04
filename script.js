@@ -2,6 +2,8 @@ let coin = document.getElementById('coin');
 let scoreCount = document.getElementById('score');
 let count = 0;
 let time = null;
+let delay = 2000;
+let scoresToChangeDelay = [10, 20, 40, 80, 160, 320, 640, 1280];
 
 const moveCoin = () => {
     coin.style.left = Math.random() * (innerWidth - coin.offsetWidth) + 'px';
@@ -11,6 +13,9 @@ const moveCoin = () => {
 const buttonClickHandler = () => {
     moveCoin();
     count += 1;
+    if (scoresToChangeDelay.includes(count)) {
+        delay -= 100;
+    }
     scoreCount.innerHTML = `${count}`;
     clearTimeout(time);
     moveCoinIn2Sec();
@@ -30,9 +35,12 @@ const moveCoinOnTime = () => {
     moveCoinIn2Sec();
 }
 
-const moveCoinIn2Sec = () => {
-    time = setTimeout(moveCoinOnTime, 2000);
+let moveCoinIn2Sec = () => {
+    time = setTimeout(moveCoinOnTime, delay);
+
 }
 
 moveCoinIn2Sec();
+
+
 

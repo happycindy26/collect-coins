@@ -1,46 +1,38 @@
-let coin = document.getElementById('coin');
-let scoreCount = document.getElementById('score');
+const coin = document.getElementById('coin');
+const score = document.getElementById('score');
 let count = 0;
+let countList = [20, 40, 60, 80, 100];
 let time = null;
 let delay = 2000;
-let scoresToChangeDelay = [10, 20, 40, 80, 160, 320, 640, 1280];
 
-const moveCoin = () => {
-    coin.style.left = Math.random() * (innerWidth - coin.offsetWidth) + 'px';
-    coin.style.top = Math.random() * (innerHeight - coin.offsetHeight) + 'px';
+
+
+const movingCoin = () => {
+    coin.style.marginLeft = Math.random() * (innerWidth - 3 * coin.offsetWidth) + 'px';
+    coin.style.marginTop = Math.random() * (innerHeight - 3 * coin.offsetHeight) + 'px';
+    //moveCoinIn2sec();
 }
+//movingCoin();
 
-const buttonClickHandler = () => {
-    moveCoin();
-    count += 1;
-    if (scoresToChangeDelay.includes(count)) {
-        delay -= 100;
+//coin.onclick(movingCoin(), 'click');
+
+coin.onclick = () => {
+    movingCoin();
+    count += 1; 
+    if (countList.includes(count)) {
+        delay -= 200;
     }
-    scoreCount.innerHTML = `${count}`;
+    score.innerHTML = `${count}`;
     clearTimeout(time);
-    moveCoinIn2Sec();
+    moveCoinIn2sec();
+}
 
-}
-coin.onclick = buttonClickHandler;
-/*
-button.onclick = () => {
-    button.style.left = Math.random() * 500 + 'px';
-    button.style.top = Math.random() * 500 + 'px';
-    count += 1;
-    scoreCount.innerHTML = `${count}`;
-}
-*/
 const moveCoinOnTime = () => {
-    moveCoin();
-    moveCoinIn2Sec();
+    movingCoin();
+    moveCoinIn2sec();
 }
 
-let moveCoinIn2Sec = () => {
+const moveCoinIn2sec= () => {
     time = setTimeout(moveCoinOnTime, delay);
-
 }
-
-moveCoinIn2Sec();
-
-
-
+moveCoinIn2sec();

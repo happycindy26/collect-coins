@@ -1,3 +1,8 @@
+HTML, CSS, JavaScript
+1) This is my first own project (collect-coins game) from design to complete
+2) To play this game, just try to click the coin to get a score
+3) When your scores higher, the coin will move faster (game difficulty increases)
+
 **Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
 
 When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.
